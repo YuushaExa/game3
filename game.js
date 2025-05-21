@@ -1,6 +1,25 @@
 const gameState = {
     globalCount: 0
 };
+
+const counterElement = document.getElementById('counter');
+const incrementBtn = document.getElementById('incrementBtn');
+
+// Initialize counter
+let count = 0;
+
+// Add click event listener to the button
+incrementBtn.addEventListener('click', function() {
+    // Increment the counter
+    count++;
+    
+    // Update the displayed count
+    counterElement.textContent = count;
+    
+    // Optional: Log to console
+    console.log('Counter incremented to:', count);
+});
+
 const gameData = {
     scenes: {
         start_screen: {
@@ -44,6 +63,9 @@ const gameData = {
                          <button class="start-btn" next_scene="block_2">Start 2</button>
                     <div class="count-display">Current count: ${gameState.globalCount}</div>
                     <button class="options-btn" next_scene="options">Options</button>
+                    <div id="counter">0</div>
+    <button id="incrementBtn">Click to +1</button>
+
                         </div>
             `,
             onRender: function() {
