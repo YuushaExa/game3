@@ -2,24 +2,6 @@ const gameState = {
     globalCount: 0
 };
 
-const counterElement = document.getElementById('counter');
-const incrementBtn = document.getElementById('incrementBtn');
-
-// Initialize counter
-let count = 0;
-
-// Add click event listener to the button
-incrementBtn.addEventListener('click', function() {
-    // Increment the counter
-    count++;
-    
-    // Update the displayed count
-    counterElement.textContent = count;
-    
-    // Optional: Log to console
-    console.log('Counter incremented to:', count);
-});
-
 const gameData = {
     scenes: {
         start_screen: {
@@ -71,6 +53,24 @@ const gameData = {
             onRender: function() {
                 // Refresh the count display when returning to this scene
                 document.querySelector('.count-display').textContent = `Current count: ${gameState.globalCount}`;
+
+                const counterElement = document.getElementById('counter');
+const incrementBtn = document.getElementById('incrementBtn');
+
+// Initialize counter
+let count = 0;
+
+// Add click event listener to the button
+incrementBtn.addEventListener('click', function() {
+    // Increment the counter
+    count++;
+    
+    // Update the displayed count
+    counterElement.textContent = count;
+    
+    // Optional: Log to console
+    console.log('Counter incremented to:', count);
+});
             },
             next_scene: "block_1"
         },
