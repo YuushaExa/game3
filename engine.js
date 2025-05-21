@@ -53,6 +53,9 @@ class VisualNovelEngine {
         if (scene.onRender) {
             scene.onRender();
         }
+         if (this.currentScene && this.scenesData[this.currentScene]?.onLeave) {
+        this.scenesData[this.currentScene].onLeave();
+    }
 
         this.triggerEvent('sceneChanged', { sceneId });
     }
