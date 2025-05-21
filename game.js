@@ -93,12 +93,7 @@ const gameData = {
    onRender: function() {
         const counterElement = document.getElementById('counter');
         const incrementBtn = document.getElementById('incrementBtn');
-        
-        // Stop any existing auto-increment
-        if (gameState.autoIncrement) {
-            clearInterval(gameState.autoIncrement);
-        }
-        
+
         // Set initial value
         counterElement.textContent = gameState.globalCount;
         
