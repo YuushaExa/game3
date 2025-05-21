@@ -41,6 +41,10 @@ class VisualNovelEngine {
 
     // Render a scene
     renderScene(sceneId) {
+         if (this.currentScene && this.scenesData[this.currentScene]?.onLeave) {
+        this.scenesData[this.currentScene].onLeave();
+    }
+        
         const scene = this.scenesData[sceneId];
         if (!scene) {
             console.error(`Scene ${sceneId} not found`);
@@ -53,9 +57,6 @@ class VisualNovelEngine {
         if (scene.onRender) {
             scene.onRender();
         }
-         if (this.currentScene && this.scenesData[this.currentScene]?.onLeave) {
-        this.scenesData[this.currentScene].onLeave();
-    }
 
         this.triggerEvent('sceneChanged', { sceneId });
     }
