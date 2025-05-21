@@ -114,6 +114,13 @@ const gameData = {
             counterElement.textContent = gameState.globalCount;
         }, 1000);
 },
+               onLeave: function() {
+        // Clear the interval when leaving the scene
+        if (gameState.autoIncrement) {
+            clearInterval(gameState.autoIncrement);
+            gameState.autoIncrement = null;
+        }
+    },
                       next_scene: "block_1"
         },
       options: {
