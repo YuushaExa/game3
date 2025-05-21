@@ -17,27 +17,22 @@ class VisualNovelEngine {
     }
 
     // Set up event delegation for scene transitions
-    setupEventDelegation() {
-        this.mainDiv.addEventListener('click', (e) => {
-            // Check if the clicked element or its parent has a next_scene attribute
-            const elementWithNextScene = e.target.closest('[next_scene]');
-            if (elementWithNextScene) {
-                const targetScene = elementWithNextScene.getAttribute('next_scene');
-                this.renderScene(targetScene);
-            }
-        });
-    }
+setupEventDelegation() {
+    this.mainDiv.addEventListener('click', (e) => {
+        const targetScene = e.target.closest('[next_scene]')?.getAttribute('next_scene');
+        if (targetScene) this.renderScene(targetScene);
+    });
+}
 
     // Start the visual novel
-    startVisualNovel() {
-        if (this.scenesData['start_screen']) {
-            this.renderScene('start_screen');
-        } else if (this.scenesData['block_1']) {
-            this.renderScene('block_1');
-        } else {
-            console.error('No starting scene found');
-        }
+startVisualNovel() {
+    const startingScene = this.scenesData['start_screen'] ? 'start_screen' : 'block_1';
+    if (this.scenesData[startingScene]) {
+        this.renderScene(startingScene);
+    } else {
+        console.error('No starting scene found');
     }
+}
 
     // Render a scene
     renderScene(sceneId) {
