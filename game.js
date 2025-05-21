@@ -1,5 +1,6 @@
 const gameState = {
-    globalCount: 0
+    globalCount: 0,
+    previousScene: null
 };
 
 const gameData = {
@@ -146,9 +147,13 @@ const gameData = {
                         <button data-lang="ru">Русский</button>
                     </div>
                     <div>Volume controls would go here</div>
-                    <button class="back-btn" next_scene="previous_scene">Back</button>
+                    <button class="btn btn-primary" next_scene="${gameState.previousScene || 'start_screen'}">Back</button>
                 </div>
             `
+          onRender: function() {
+                // Store current scene as previous before going to options
+                gameState.previousScene = vnEngine.currentScene;
+            }
         },
     }
 };
