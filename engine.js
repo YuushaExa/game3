@@ -60,8 +60,8 @@ startVisualNovel() {
         this.triggerEvent('sceneChanged', { sceneId });
     }
 
-    setBackground(background) {
-           this.mainDiv.style.backgroundImage = `url('${background.backgroundUrl}')`;
+    setBackground(backgroundUrl) {
+           this.mainDiv.style.backgroundImage = `url('${backgroundUrl}')`;
     }
 
     
