@@ -57,10 +57,7 @@ const gameData = {
             next_scene: "block_1"
         },
         block_1: {
-            background: {
-                type: "image",
-                source: "background1.jpg"
-            },
+            background: "background1.jpg",
              dialog: [
                 {
                     name: "Character 1",
