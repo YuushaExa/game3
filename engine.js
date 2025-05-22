@@ -61,8 +61,9 @@ startVisualNovel() {
     }
 
     setBackground(background) {
-            document.body.style.backgroundImage = `url('${background.source}')`;
+           this.mainDiv.style.backgroundImage = `url('${background.backgroundUrl}')`;
     }
+
     
     // Event handling system
     on(event, handler) {
