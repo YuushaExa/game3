@@ -86,7 +86,13 @@ const gameData = {
                 type: "color",
                 source: "#f0f0f0"
             },
-        html: `<div id="counter">${gameState.globalCount}</div>
+        html: `
+          <style>
+                    div#counter {
+                        background: #fff;
+                        }
+                        </style>
+        <div id="counter">${gameState.globalCount}</div>
                   <button id="incrementBtn">Click to +1</button>
                   <button class="start-btn" next_scene="start_screen">Return to Home</button>`,
    onRender: function() {
@@ -121,7 +127,7 @@ const gameData = {
             html: `
                 <style>
                     .options-menu {
-                        background: rgba(0,0,0,0.8);
+                        background: #3f51b5;
                         color: white;
                         padding: 30px;
                         border-radius: 10px;
