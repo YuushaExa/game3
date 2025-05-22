@@ -39,7 +39,9 @@ startVisualNovel() {
          if (this.currentScene && this.scenesData[this.currentScene]?.onLeave) {
         this.scenesData[this.currentScene].onLeave();
     }
-        
+          if (scene.background) {
+            this.setBackground(scene.background);
+        }
         const scene = this.scenesData[sceneId];
         if (!scene) {
             console.error(`Scene ${sceneId} not found`);
@@ -56,6 +58,10 @@ startVisualNovel() {
         this.triggerEvent('sceneChanged', { sceneId });
     }
 
+    setBackground(background) {
+            document.body.style.backgroundImage = `url('${background.source}')`;
+    }
+    
     // Event handling system
     on(event, handler) {
         if (!this.handlers[event]) {
