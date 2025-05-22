@@ -57,7 +57,7 @@ const gameData = {
             next_scene: "block_1"
         },
         block_1: {
-            background: "background1.jpg",
+            background: "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
              dialog: [
                 {
                     name: "Character 1",
