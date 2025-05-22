@@ -19,6 +19,7 @@ const gameData = {
                                 color: white;
                                 font-family: Arial, sans-serif;
                                 text-align: center;
+                                position: relative;
                             }
                             .title {
                                 font-size: 3em;
