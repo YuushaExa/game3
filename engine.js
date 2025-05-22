@@ -39,15 +39,17 @@ startVisualNovel() {
          if (this.currentScene && this.scenesData[this.currentScene]?.onLeave) {
         this.scenesData[this.currentScene].onLeave();
     }
-          if (scene.background) {
-            this.setBackground(scene.background);
-        }
+   
         const scene = this.scenesData[sceneId];
         if (!scene) {
             console.error(`Scene ${sceneId} not found`);
             return;
         }
 
+       if (scene.background) {
+            this.setBackground(scene.background);
+        }
+        
         this.currentScene = sceneId;
         this.mainDiv.innerHTML = scene.html || '';
         
