@@ -4,6 +4,9 @@ class VisualNovelEngine {
         this.scenesData = {};
         this.handlers = {};
         this.mainDiv = document.getElementById('main');
+
+             this.currentDialogIndex = 0;
+        this.currentDialogData = null;
         
         // Set up event delegation once during initialization
         this.setupEventDelegation();
@@ -50,8 +53,11 @@ startVisualNovel() {
             this.setBackground(scene.background);
         }
 
- if (scene.dialog) {
-             renderDialogSystem(scene.dialog)
+     if (scene.dialog) {
+            this.currentDialogData = scene.dialog;
+            this.currentDialogIndex = 0;
+            this.renderDialogSystem();
+            this.showCurrentDialog();
         }
         
         this.currentScene = sceneId;
