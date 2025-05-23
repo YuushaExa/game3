@@ -49,13 +49,13 @@ startVisualNovel() {
        if (scene.background) {
             this.setBackground(scene.background);
         }
-
- if (scene.dialog) {
-             this.renderDialogSystem(scene.dialog)
-        }
         
         this.currentScene = sceneId;
         this.mainDiv.innerHTML = scene.html || '';
+
+  if (scene.dialog) {
+        renderDialogSystem(scene.dialog);
+    }
         
         if (scene.onRender) {
             scene.onRender();
@@ -82,6 +82,43 @@ startVisualNovel() {
             this.handlers[event].forEach(handler => handler(data));
         }
     }
+}
+// dialog
+function renderDialogSystem(dialogArray) {
+    const dialogContainer = document.createElement('div');
+    dialogContainer.className = 'dialog-container';
+    dialogContainer.innerHTML = `
+        <div class="dialog-box">
+            <div class="character-info">
+                <img class="character-avatar" src="">
+                <span class="character-name"></span>
+            </div>
+            <div class="dialog-text"></div>
+            <button class="next-dialog">Next</button>
+        </div>
+    `;
+    
+    document.body.appendChild(dialogContainer);
+    
+    let currentDialogIndex = 0;
+    const updateDialog = () => {
+        if (currentDialogIndex >= dialogArray.length) {
+            dialogContainer.remove();
+            return;
+        }
+        
+        const dialog = dialogArray[currentDialogIndex];
+        dialogContainer.querySelector('.character-avatar').src = dialog.image;
+        dialogContainer.querySelector('.character-name').textContent = dialog.name;
+        dialogContainer.querySelector('.dialog-text').textContent = dialog.text;
+    };
+    
+    updateDialog();
+    
+    dialogContainer.querySelector('.next-dialog').addEventListener('click', () => {
+        currentDialogIndex++;
+        updateDialog();
+    });
 }
 
 // Initialize the engine when the page loads
