@@ -49,6 +49,10 @@ startVisualNovel() {
        if (scene.background) {
             this.setBackground(scene.background);
         }
+
+ if (scene.dialog) {
+             renderDialogSystem(scene.dialog)
+        }
         
         this.currentScene = sceneId;
         this.mainDiv.innerHTML = scene.html || '';
