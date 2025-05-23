@@ -1,6 +1,6 @@
 class VisualNovelEngine {
     constructor() {
-        this.currentScene = null;
+        this.currentScene = null; 
         this.scenesData = {};
         this.handlers = {};
         this.mainDiv = document.getElementById('main');
