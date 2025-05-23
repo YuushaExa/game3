@@ -19,7 +19,10 @@ function renderDialogSystem(dialogArray) {
     const updateDialog = () => {
         if (currentDialogIndex >= dialogArray.length) {
             dialogContainer.remove();
-            return;
+                const currentScene = this.scenesData[this.currentScene];
+            if (currentScene.scene && currentScene.scene.next_scene) {
+                this.renderScene(currentScene.scene.next_scene);
+            }
         }
         
         const dialog = dialogArray[currentDialogIndex];
