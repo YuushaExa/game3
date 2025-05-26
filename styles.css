@@ -11,7 +11,6 @@
     position: absolute;
                 background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
             transform-origin: left top;
             overflow: hidden;
               position: absolute;
@@ -24,7 +23,6 @@
     image-rendering: pixelated; 
     backface-visibility: hidden;
     perspective: 1000px;
-    outline: 1px solid transparent;
     transform: translateZ(0);
 }
 
