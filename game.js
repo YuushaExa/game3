@@ -59,7 +59,7 @@ const gameData = {
         },
         block_1: {
             background: "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
-           color: "#f2f2f2",
+            color: "#ff0000",
              dialog: [
                 {
                     name: "Character 1",
