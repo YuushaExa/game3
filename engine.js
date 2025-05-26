@@ -49,6 +49,9 @@ startVisualNovel() {
        if (scene.background) {
             this.setBackground(scene.background);
         }
+           if (scene.color) {
+            this.setColor(scene.color);
+        }
         
         this.currentScene = sceneId;
         this.mainDiv.innerHTML = scene.html || '';
@@ -66,6 +69,9 @@ startVisualNovel() {
 
     setBackground(backgroundUrl) {
            this.mainDiv.style.backgroundImage = `url('${backgroundUrl}')`;
+    }
+       setColor(color) {
+          this.mainDiv.style.backgroundColor = color;
     }
 
     
