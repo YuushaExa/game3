@@ -75,7 +75,23 @@ const gameData = {
                     name: "Character 2",
                     image: "avatar2.jpg",
                     text: "This is the third dialogue."
+                ",
+            // Add choices at this dialog point
+            choices: [
+                {
+                    text: "Go to the park",
+                    next_scene: "park_scene"
+                },
+                {
+                    text: "Stay here",
+                    next_scene: "stay_scene"
+                },
+                {
+                    text: "Ask for more information",
+                    next_scene: "info_scene"
                 }
+            ]
+        }
             ],
             scene: {
                 time: "25", // in seconds
