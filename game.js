@@ -78,15 +78,15 @@ const gameData = {
  choices: [
                 {
                     text: "Go to the park",
-                    next_scene: "park_scene"
+                    next_scene: "start_screen"
                 },
                 {
                     text: "Stay here",
-                    next_scene: "stay_scene"
+                    next_scene: "start_screen"
                 },
                 {
                     text: "Ask for more information",
-                    next_scene: "info_scene"
+                    next_scene: "start_screen"
                 }
             ]
         }
