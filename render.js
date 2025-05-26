@@ -37,3 +37,47 @@ function renderDialogSystem(dialogArray) {
         updateDialog();
     });
 }
+
+function renderChoices(choices) {
+    // Create main overlay container
+    const choicesOverlay = document.createElement('div');
+    choicesOverlay.className = 'choices-overlay';
+    
+    // Create centered choices container
+    const choicesContainer = document.createElement('div');
+    choicesContainer.className = 'choices-center-container';
+    
+    // Create each choice button
+    choices.forEach(choice => {
+        const choiceButton = document.createElement('button');
+        choiceButton.className = 'choice-button';
+        choiceButton.textContent = choice.text;
+        
+        choiceButton.addEventListener('click', () => {
+            // Remove the choices overlay
+            choicesOverlay.remove();
+            
+            // Load the next scene
+            if (choice.next_scene) {
+                loadScene(choice.next_scene);
+            }
+            
+            // Optional: Call a callback if provided
+            if (choice.onSelect) {
+                choice.onSelect();
+            }
+        });
+        
+        choicesContainer.appendChild(choiceButton);
+    });
+    
+    choicesOverlay.appendChild(choicesContainer);
+    this.mainDiv.appendChild(choicesOverlay);
+    
+    // Add click handler to overlay (optional - close when clicking outside)
+    choicesOverlay.addEventListener('click', (e) => {
+        if (e.target === choicesOverlay) {
+            choicesOverlay.remove();
+        }
+    });
+}
