@@ -39,6 +39,7 @@ function renderDialogSystem(dialogArray) {
 }
 
 function renderChoices(choices) {
+ this.clearChoices();
     // Create main overlay container
     const choicesOverlay = document.createElement('div');
     choicesOverlay.className = 'choices-overlay';
@@ -80,4 +81,8 @@ function renderChoices(choices) {
             choicesOverlay.remove();
         }
     });
+     clearChoices() {
+        const existing = document.getElementById('choices-container');
+        if (existing) existing.remove();
+    }
 }
