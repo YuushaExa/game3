@@ -13,7 +13,7 @@ function renderDialogSystem(dialogArray) {
         </div>
     `;
     
-    document.body.appendChild(dialogContainer);
+    this.mainDiv.body.appendChild(dialogContainer);
     
     let currentDialogIndex = 0;
     const updateDialog = () => {
