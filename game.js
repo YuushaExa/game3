@@ -74,9 +74,7 @@ const gameData = {
                 {
                     name: "Character 2",
                     image: "avatar2.jpg",
-                    text: "This is the third dialogue.", 
-        }
-            ],
+                    text: "This is the third dialogue."
  choices: [
                 {
                     text: "Go to the park",
@@ -90,6 +88,8 @@ const gameData = {
                     text: "Ask for more information",
                     next_scene: "info_scene"
                 }
+            ]
+        }
             ],
             scene: {
                 time: "25", // in seconds
