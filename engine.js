@@ -46,6 +46,10 @@ startVisualNovel() {
             return;
         }
 
+  this.mainDiv.style.backgroundImage = 'none';
+    this.mainDiv.style.backgroundColor = 'transparent';
+
+        
        if (scene.background) {
             this.setBackground(scene.background);
         }
