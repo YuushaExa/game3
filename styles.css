@@ -24,7 +24,7 @@
     perspective: 1000px;
     transform: translateZ(0);
 
-outline: 1px solid transparent;
+outline: 2px solid transparent;
 }
 
 .dialog-container {
