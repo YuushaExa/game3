@@ -17,7 +17,7 @@ function renderDialogSystem(dialogArray) {
     
     this.mainDiv.appendChild(dialogContainer);
     
-    let currentDialogIndex = 0;
+   let currentDialogIndex = 0;
     const updateDialog = () => {
         if (currentDialogIndex >= dialogArray.length) {
             dialogContainer.remove();
@@ -28,18 +28,23 @@ function renderDialogSystem(dialogArray) {
         dialogContainer.querySelector('.character-avatar').src = dialog.image;
         dialogContainer.querySelector('.character-name').textContent = dialog.name;
         dialogContainer.querySelector('.dialog-text').textContent = dialog.text;
+        
+        // Hide next button if there are choices
+        const nextBtn = dialogContainer.querySelector('.next-dialog');
+        if (dialog.choices) {
+            nextBtn.style.display = 'none';
+            renderChoices.call(this, dialog.choices); // Bind 'this' properly
+        } else {
+            nextBtn.style.display = 'block';
+        }
     };
-    
-    updateDialog();
-    
-    dialogContainer.querySelector('.next-dialog').addEventListener('click', () => {
-        currentDialogIndex++;
-        updateDialog();
-    });
 }
 
 function renderChoices(choices) {
- this.clearChoices();
+    // Clear existing choices
+    const existing = document.querySelector('.choices-overlay');
+    if (existing) existing.remove();
+    
     // Create main overlay container
     const choicesOverlay = document.createElement('div');
     choicesOverlay.className = 'choices-overlay';
@@ -58,14 +63,9 @@ function renderChoices(choices) {
             // Remove the choices overlay
             choicesOverlay.remove();
             
-            // Load the next scene
+            // Load the next scene using the engine's method
             if (choice.next_scene) {
-                loadScene(choice.next_scene);
-            }
-            
-            // Optional: Call a callback if provided
-            if (choice.onSelect) {
-                choice.onSelect();
+                vnEngine.renderScene(choice.next_scene);
             }
         });
         
@@ -76,14 +76,9 @@ function renderChoices(choices) {
     this.mainDiv.appendChild(choicesOverlay);
     
     // Add click handler to overlay (optional - close when clicking outside)
-     choicesOverlay.addEventListener('click', (e) => {
+    choicesOverlay.addEventListener('click', (e) => {
         if (e.target === choicesOverlay) {
             choicesOverlay.remove();
         }
     });
-}
-
-function clearChoices() {
-    const existing = document.querySelector('.choices-overlay');
-    if (existing) existing.remove();
 }
