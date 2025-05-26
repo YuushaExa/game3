@@ -60,6 +60,10 @@ startVisualNovel() {
         renderDialogSystem(scene.dialog);
     }
         
+  if (scene.choices) {
+        renderChoices(scene.choices);
+    }
+        
         if (scene.onRender) {
             scene.onRender();
         }
