@@ -19,7 +19,6 @@
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    image-rendering: pixelated; 
     backface-visibility: hidden;
     perspective: 1000px;
     transform: translateZ(0);
