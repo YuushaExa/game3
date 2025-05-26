@@ -74,9 +74,7 @@ const gameData = {
                 {
                     name: "Character 2",
                     image: "avatar2.jpg",
-                    text: "This is the third dialogue."
-                ",
-            // Add choices at this dialog point
+                    text: "This is the third dialogue.",
             choices: [
                 {
                     text: "Go to the park",
