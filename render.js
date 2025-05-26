@@ -76,13 +76,14 @@ function renderChoices(choices) {
     this.mainDiv.appendChild(choicesOverlay);
     
     // Add click handler to overlay (optional - close when clicking outside)
-    choicesOverlay.addEventListener('click', (e) => {
+     choicesOverlay.addEventListener('click', (e) => {
         if (e.target === choicesOverlay) {
             choicesOverlay.remove();
         }
     });
-     clearChoices() {
-        const existing = document.getElementById('choices-container');
-        if (existing) existing.remove();
-    }
+}
+
+function clearChoices() {
+    const existing = document.querySelector('.choices-overlay');
+    if (existing) existing.remove();
 }
