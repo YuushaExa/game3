@@ -18,6 +18,7 @@
     transform-origin: 0 0;
     background-size: cover;
     background-position: center;
+                image-rendering: pixelated; 
     overflow: hidden;
     backface-visibility: hidden;
     perspective: 1000px;
