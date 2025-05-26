@@ -1,3 +1,5 @@
+ this.mainDiv = document.getElementById('main');
+
 // dialog
 function renderDialogSystem(dialogArray) {
     const dialogContainer = document.createElement('div');
