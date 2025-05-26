@@ -17,7 +17,7 @@ function renderDialogSystem(dialogArray) {
     
     this.mainDiv.appendChild(dialogContainer);
     
-   let currentDialogIndex = 0;
+    let currentDialogIndex = 0;
     const updateDialog = () => {
         if (currentDialogIndex >= dialogArray.length) {
             dialogContainer.remove();
@@ -38,6 +38,13 @@ function renderDialogSystem(dialogArray) {
             nextBtn.style.display = 'block';
         }
     };
+    
+    updateDialog();
+    
+    dialogContainer.querySelector('.next-dialog').addEventListener('click', () => {
+        currentDialogIndex++;
+        updateDialog();
+    });
 }
 
 function renderChoices(choices) {
