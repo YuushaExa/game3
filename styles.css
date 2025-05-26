@@ -23,6 +23,9 @@
     backface-visibility: hidden;
     perspective: 1000px;
     transform: translateZ(0);
+
+             isolation: isolate; /* Creates new stacking context */
+    clip-path: inset(0);
 }
 
 .dialog-container {
