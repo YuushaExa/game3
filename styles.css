@@ -8,22 +8,25 @@
 }
 #main {
 
-    position: absolute;
-                background-size: cover;
-    background-position: center center;
-            transform-origin: left top;
-            overflow: hidden;
-              position: absolute;
+
+
+               position: fixed; /* Changed from absolute to fixed */
     left: 0;
     top: 0;
-    transform-origin: 0 0;
+    width: 100vw; /* Explicit width */
+    height: 100vh; /* Explicit height */
+    transform-origin: left top;
+    overflow: hidden;
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    background-repeat: no-repeat; /* Add this to prevent tiling */
     image-rendering: pixelated; 
     backface-visibility: hidden;
     perspective: 1000px;
     transform: translateZ(0);
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
+    box-sizing: border-box; /* Include padding/border in dimensions */
 }
 
 .dialog-container {
