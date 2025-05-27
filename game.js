@@ -78,11 +78,11 @@ const gameData = {
  choices: [
                 {
                     text: "Go to the park",
-                    next_scene: "start_screen"
+                    next_scene: "block_3"
                 },
                 {
                     text: "Stay here",
-                    next_scene: "start_screen"
+                    next_scene: "block_3"
                 },
                 {
                     text: "Ask for more information",
@@ -138,6 +138,9 @@ const gameData = {
     },
                       next_scene: "block_1"
         },
+ block_3: {
+color: "#ff0000",
+ },
       options: {
             html: `
                 <style>
